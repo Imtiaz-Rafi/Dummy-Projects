@@ -3,8 +3,10 @@ import "./timer.css";
 
 class Timer extends React.Component {
     state = {
+        hour: 0,
         minute: 0,
         second: 1,
+        start: 0,
     };
     intervalId = null;
     incrementSecond = () => {
@@ -30,14 +32,14 @@ class Timer extends React.Component {
         if (this.state.second >= 0 && this.state.minute >= 0 && !this.intervalId) {
             this.intervalId = setInterval(() => {
                 if (this.state.second === 0 && this.state.minute > 0) {
-                    this.setState({ second: 59, minute: this.state.minute - 1 });
+                    this.setState({ second: 59, minute: this.state.minute - 1, start: 1 });
                 } else {
-                    this.setState({ second: this.state.second - 1 });
+                    this.setState({ second: this.state.second - 1, start: 1 });
                     if (this.state.second === 0 && this.state.minute === 0) {
                         alert("Countdown Finished!");
                         clearInterval(this.intervalId);
                         this.intervalId = null;
-                        this.setState({ second: 1 });
+                        this.setState({ second: 1, start: 0 });
                     }
                 }
             }, 1000);
@@ -47,20 +49,21 @@ class Timer extends React.Component {
         if (this.state.second > 0 && this.state.minute >= 0) {
             clearInterval(this.intervalId);
             this.intervalId = null;
+            this.setState({ start: 2 });
         }
     };
     resetTimer = () => {
         clearInterval(this.intervalId);
         this.intervalId = null;
-        this.setState({ second: 1, minute: 0 });
+        this.setState({ second: 1, minute: 0, start: 0 });
     };
 
     render() {
         return (
-            <>
+            <div className="timer-body">
                 <div className="container">
                     <div className="body-heading">
-                        <h2>Timer</h2>
+                        <h1>Timer</h1>
                     </div>
                     <div className="body-heading">
                         <button className="btn" onClick={this.incrementMinute}>
@@ -86,18 +89,26 @@ class Timer extends React.Component {
                         </button>
                     </div>
                 </div>
-                <div className="container btn-bottom">
-                    <button className="btn" onClick={this.startTimer}>
-                        Start
-                    </button>
-                    <button className="btn" onClick={this.pauseTimer}>
-                        Pause
-                    </button>
-                    <button className="btn" onClick={this.resetTimer}>
+                <div className="container">
+                    {this.state.start === 0 ? (
+                        <button className="btn btn-bottom btn-green" onClick={this.startTimer}>
+                            Start
+                        </button>
+                    ) : this.state.start === 2 ? (
+                        <button className="btn btn-bottom btn-green" onClick={this.startTimer}>
+                            Resume
+                        </button>
+                    ) : (
+                        <button className="btn btn-bottom btn-yellow" onClick={this.pauseTimer}>
+                            Pause
+                        </button>
+                    )}
+
+                    <button className="btn btn-bottom btn-red" onClick={this.resetTimer}>
                         Reset
                     </button>
                 </div>
-            </>
+            </div>
         );
     }
 }
