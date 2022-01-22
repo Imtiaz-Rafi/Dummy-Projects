@@ -1,0 +1,24 @@
+.btn {
+    border: none;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+.text {
+    /* border: 1px solid; */
+    padding: 10px;
+    font-size: 26px;
+}
+.text2 {
+    font-size: 15px;
+}
+.body-heading {
+    margin: 20px 10px;
+}
+.btn-bottom {
+    margin-top: 40px;
+}
+.container {
+    align-items: center;
+    margin: auto;
+    margin: 0px 5%;
+}
