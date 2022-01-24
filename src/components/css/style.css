@@ -16,6 +16,9 @@ a {
     padding: 20px;
     color: #00b894;
 }
+.body-element {
+    margin: 0px 0px 20px 0px;
+}
 .navbar {
     text-align: center;
     border-bottom: 2px solid #c5c5c5;

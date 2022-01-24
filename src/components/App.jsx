@@ -7,6 +7,7 @@ import Home from "./home";
 import Footer from "./footer";
 import Timer from "./timer";
 import TiktakToe from "./tiktaktoe";
+import Calculator from "./calculator";
 
 class App extends React.Component {
     render() {
@@ -20,6 +21,7 @@ class App extends React.Component {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/timer" element={<Timer />} />
                                 <Route path="/tiktaktoe" element={<TiktakToe />} />
+                                <Route path="/calculator" element={<Calculator />} />
                             </Routes>
                         </div>
                     </div>
