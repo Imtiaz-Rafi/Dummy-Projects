@@ -1,0 +1,55 @@
+.btn {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px 0px rgb(120 120 120);
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 10px 10px;
+    cursor: pointer;
+}
+.timer-body {
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 0px rgb(166, 202, 255);
+    padding: 20px;
+    width: 500px;
+    margin: 20px auto;
+    background: #deeeff;
+}
+.text {
+    padding: 10px;
+    font-size: 26px;
+}
+.text2 {
+    font-size: 15px;
+}
+.btn-bottom {
+    color: white;
+    padding: 10px 50px;
+    transition: 0.3s ease-in-out;
+}
+.btn-bottom:hover {
+    /* transform: ; */
+    padding: 8px 48px;
+}
+.btn-green {
+    background: rgb(0, 187, 72);
+}
+.btn-green:hover {
+    background: rgb(0, 161, 62);
+}
+.btn-yellow {
+    color: black;
+    background: rgb(236, 233, 8);
+}
+.btn-yellow:hover {
+    background: rgb(218, 214, 11);
+}
+.btn-red {
+    background: rgb(212, 24, 3);
+}
+.btn-red:hover {
+    background: rgb(170, 20, 3);
+}
+.body-element {
+    margin: 15px;
+}
