@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./calc.module.css";
+import Board from "./board";
 
 class Calculator extends React.Component {
     state = {
@@ -11,9 +12,13 @@ class Calculator extends React.Component {
 
     handleValue = (event) => {
         this.setState({ val: this.state.val * 10 + parseInt(event.target.value) });
+        console.log(event.target.value);
     };
     handleOperator = (event) => {
         this.setState({ char: event.target.value, temp: this.state.temp + this.state.val, val: 0 });
+    };
+    handleDoubleValue = (event) => {
+        this.setState({ val: this.state.val * 100 + 0 });
     };
 
     handleEqual = () => {
@@ -55,8 +60,17 @@ class Calculator extends React.Component {
                                 {this.state.val}
                             </div>
                         </div>
-
-                        <div className={classes.calc_input}>
+                        {/* PRACTICE */}
+                        <Board
+                            handleValue={this.handleValue}
+                            handleOperator={this.handleOperator}
+                            handleEqual={this.handleEqual}
+                            handleCancel={this.handleCancel}
+                            handleReset={this.handleReset}
+                            handleDoubleValue={this.handleDoubleValue}
+                        />
+                        {/* PRACTICE */}
+                        {/* <div className={classes.calc_input}>
                             <button className={`${classes.btn} ${classes.btnBlue}`} onClick={this.handleReset}>
                                 C
                             </button>
@@ -86,7 +100,6 @@ class Calculator extends React.Component {
                             <button className={classes.btn} onClick={this.handleValue} value={9}>
                                 9
                             </button>
-
                             <button
                                 className={`${classes.btn} ${classes.btnBlue}`}
                                 onClick={this.handleOperator}
@@ -143,7 +156,7 @@ class Calculator extends React.Component {
                             <button className={`${classes.btn} ${classes.btnBlue}`} onClick={this.handleEqual}>
                                 <i className={`${"fas fa-equals"} ${classes.icons}`}></i>
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </>
