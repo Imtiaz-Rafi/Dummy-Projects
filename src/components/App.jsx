@@ -4,6 +4,7 @@ import "./css/style.css";
 
 import Navbar from "./navbar";
 import Home from "./home";
+import Error from "./error";
 import Footer from "./footer";
 import Timer from "./timer";
 import TiktakToe from "./tiktaktoe";
@@ -22,6 +23,7 @@ class App extends React.Component {
                                 <Route path="/timer" element={<Timer />} />
                                 <Route path="/tiktaktoe" element={<TiktakToe />} />
                                 <Route path="/calculator" element={<Calculator />} />
+                                <Route path="*" element={<Error />} />
                             </Routes>
                         </div>
                     </div>
