@@ -9,6 +9,7 @@ import Footer from "./footer";
 import Timer from "./timer";
 import TiktakToe from "./tiktaktoe";
 import Calculator from "./calculator";
+import Todolist from "./todo";
 
 class App extends React.Component {
     render() {
@@ -23,6 +24,7 @@ class App extends React.Component {
                                 <Route path="/timer" element={<Timer />} />
                                 <Route path="/tiktaktoe" element={<TiktakToe />} />
                                 <Route path="/calculator" element={<Calculator />} />
+                                <Route path="/todolist" element={<Todolist />} />
                                 <Route path="*" element={<Error />} />
                             </Routes>
                         </div>
