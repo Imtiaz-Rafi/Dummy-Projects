@@ -12,7 +12,7 @@ const Home = () => {
                 <CardLinks path={"/timer"} Cardimage={timer} title={"Timer"} />
                 <CardLinks path={"/calculator"} Cardimage={calculator} title={"Calculator"} />
                 <CardLinks path={"/tiktaktoe"} Cardimage={tiktaktoe} title={"TikTakToe"} />
-                <CardLinks path={"/todolist"} Cardimage={todolist} title={"Todo List"} />
+                <CardLinks path={"/todolist"} Cardimage={todolist} title={"To Do List"} />
             </div>
         </>
     );
