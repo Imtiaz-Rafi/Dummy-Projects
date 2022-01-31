@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./todo.module.css";
 import ListView from "./listview";
 
 class Todolist extends React.Component {
@@ -30,7 +31,7 @@ class Todolist extends React.Component {
         return (
             <div className="text-center">
                 <h1 className="body-element">To Do List</h1>
-                <div>
+                <div className={classes.list_view}>
                     <ListView
                         todos={this.state.todos}
                         toggleSelect={this.toggleSelect}
