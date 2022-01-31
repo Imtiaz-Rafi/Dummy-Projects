@@ -7,7 +7,8 @@
     margin: 10px 10px;
     cursor: pointer;
 }
-.timer-body {
+.timer_body {
+    text-align: center;
     border-radius: 8px;
     box-shadow: 0px 0px 5px 0px rgb(166, 202, 255);
     padding: 20px;
@@ -22,31 +23,31 @@
 .text2 {
     font-size: 15px;
 }
-.btn-bottom {
+.btn_bottom {
     color: white;
     padding: 10px 50px;
     transition: 0.3s ease-in-out;
 }
-.btn-bottom:hover {
+.btn_bottom:hover {
     /* transform: ; */
     padding: 8px 48px;
 }
-.btn-green {
+.btn_green {
     background: rgb(0, 187, 72);
 }
-.btn-green:hover {
+.btn_green:hover {
     background: rgb(0, 161, 62);
 }
-.btn-yellow {
+.btn_yellow {
     color: black;
     background: rgb(236, 233, 8);
 }
-.btn-yellow:hover {
+.btn_yellow:hover {
     background: rgb(218, 214, 11);
 }
-.btn-red {
+.btn_red {
     background: rgb(212, 24, 3);
 }
-.btn-red:hover {
+.btn_red:hover {
     background: rgb(170, 20, 3);
 }

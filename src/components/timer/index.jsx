@@ -1,5 +1,5 @@
 import React from "react";
-import "./timer.css";
+import classes from "./timer.module.css";
 
 class Timer extends React.Component {
     state = {
@@ -60,51 +60,63 @@ class Timer extends React.Component {
 
     render() {
         return (
-            <div className="timer-body">
-                <div className="text-center">
-                    <div className="body-element">
+            <div className={classes.timer_body}>
+                <div className={classes.text_center}>
+                    <div className={classes.body_element}>
                         <h1>Timer</h1>
                     </div>
-                    <div className="body-element">
-                        <button className="btn" onClick={this.incrementMinute}>
+                    <div className={classes.body_element}>
+                        <button className={classes.btn} onClick={this.incrementMinute}>
                             +
                         </button>
-                        {/* <button className="btn" onClick={this.incrementMinute}>+</button> */}
-                        <span className="text">
-                            {this.state.minute} <span className="text2">min</span>
+                        {/* <button className={classes.}"btn" onClick={this.incrementMinute}>+</button> */}
+                        <span className={classes.text}>
+                            {this.state.minute} <span className={classes.text2}>min</span>
                         </span>
-                        <button className="btn" onClick={this.decrementMinute}>
+                        <button className={classes.btn} onClick={this.decrementMinute}>
                             -
                         </button>
                     </div>
-                    <div className="body-element">
-                        <button className="btn" onClick={this.incrementSecond}>
+                    <div className={classes.body_element}>
+                        <button className={classes.btn} onClick={this.incrementSecond}>
                             +
                         </button>
-                        <span className="text">
-                            {this.state.second} <span className="text2">sec</span>
+                        <span className={classes.text}>
+                            {this.state.second} <span className={classes.text2}>sec</span>
                         </span>
-                        <button className="btn" onClick={this.decrementSecond}>
+                        <button className={classes.btn} onClick={this.decrementSecond}>
                             -
                         </button>
                     </div>
                 </div>
-                <div className="text-center">
+                <div className={classes.text_center}>
                     {this.state.start === 0 ? (
-                        <button className="btn btn-bottom btn-green" onClick={this.startTimer}>
+                        <button
+                            className={`${classes.btn} ${classes.btn_bottom} ${classes.btn_green}`}
+                            onClick={this.startTimer}
+                        >
                             Start
                         </button>
                     ) : this.state.start === 2 ? (
-                        <button className="btn btn-bottom btn-green" onClick={this.startTimer}>
+                        <button
+                            className={`${classes.btn} ${classes.btn_bottom} ${classes.btn_green}`}
+                            onClick={this.startTimer}
+                        >
                             Resume
                         </button>
                     ) : (
-                        <button className="btn btn-bottom btn-yellow" onClick={this.pauseTimer}>
+                        <button
+                            className={`${classes.btn} ${classes.btn_bottom} ${classes.btn_yellow}`}
+                            onClick={this.pauseTimer}
+                        >
                             Pause
                         </button>
                     )}
 
-                    <button className="btn btn-bottom btn-red" onClick={this.resetTimer}>
+                    <button
+                        className={`${classes.btn} ${classes.btn_bottom} ${classes.btn_red}`}
+                        onClick={this.resetTimer}
+                    >
                         Reset
                     </button>
                 </div>
