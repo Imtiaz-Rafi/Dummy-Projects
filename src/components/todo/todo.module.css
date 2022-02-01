@@ -50,6 +50,9 @@ table {
 }
 tr {
 }
+tr:nth-child(even) {
+    background-color: #d6eeee;
+}
 th,
 td {
     border-top: 1px solid rgb(0, 0, 0, 0.2);
