@@ -13,11 +13,11 @@ const ListItem = ({ todo, toggleSelect, toggleComplete }) => {
                     checked={todo.isSelect}
                     onChange={() => toggleSelect(todo.id)}
                 />
-                <div className="">
+                <div className={classes.text_body}>
                     <h3 className={classes.title}>{todo.title}</h3>
-                    <div className={classes.desc}>{todo.desc}</div>
+                    {/* <div className={classes.desc}>{todo.desc}</div> */}
+                    <div className={classes.date}>{todo.time.toDateString()}</div>
                 </div>
-                <div className={classes.date}>{todo.time.toDateString()}</div>
                 {/* <div className={classes.todo_btn}> */}
                 <button
                     className={`${classes.todo_btn} ${todo.isComplete ? classes.danger : classes.success}`}

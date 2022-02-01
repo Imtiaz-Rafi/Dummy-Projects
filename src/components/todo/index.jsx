@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./todo.module.css";
 import ListView from "./listview";
+import TableView from "./tableview";
 
 class Todolist extends React.Component {
     state = {
@@ -29,10 +30,15 @@ class Todolist extends React.Component {
 
     render() {
         return (
-            <div className="text-center">
+            <div className={`"text-center" ${classes.container}`}>
                 <h1 className="body-element">To Do List</h1>
                 <div className={classes.list_view}>
                     <ListView
+                        todos={this.state.todos}
+                        toggleSelect={this.toggleSelect}
+                        toggleComplete={this.toggleComplete}
+                    />
+                    <TableView
                         todos={this.state.todos}
                         toggleSelect={this.toggleSelect}
                         toggleComplete={this.toggleComplete}
