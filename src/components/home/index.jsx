@@ -8,7 +8,7 @@ import todolist from "../images/todolist.jpg";
 const Home = () => {
     return (
         <>
-            <div className="card">
+            <div className="card-list">
                 <CardLinks path={"/timer"} Cardimage={timer} title={"Timer"} />
                 <CardLinks path={"/calculator"} Cardimage={calculator} title={"Calculator"} />
                 <CardLinks path={"/tiktaktoe"} Cardimage={tiktaktoe} title={"TikTakToe"} />
