@@ -27,10 +27,19 @@ class Todolist extends React.Component {
                 isComplete: false,
                 isSelect: false,
             },
+            {
+                id: "12345",
+                text: "New Task",
+                desc: "This is Description2",
+                time: new Date(),
+                isComplete: false,
+                isSelect: false,
+            },
         ],
         isModalOpen: false,
         SearchTerm: "",
         TodoView: "list",
+        filter: "all",
     };
 
     toggleSelect = (todoId) => {
@@ -47,7 +56,14 @@ class Todolist extends React.Component {
 
         this.setState({ todos });
     };
-    handleSearch = () => {};
+    handleSearch = (value) => {
+        this.setState({
+            SearchTerm: value,
+        });
+    };
+    performSearch = () => {
+        return this.state.todos.filter((todo) => todo.text.toLowerCase().includes(this.state.SearchTerm.toLowerCase()));
+    };
     toggleForm = () => {
         this.setState({ isModalOpen: !this.state.isModalOpen });
     };
@@ -61,7 +77,19 @@ class Todolist extends React.Component {
         this.setState({ todos });
         this.toggleForm();
     };
-    handleFilter = () => {};
+    handleFilter = (filter) => {
+        this.setState({ filter });
+    };
+    performFilter = (todos) => {
+        const { filter } = this.state;
+        if (filter === "completed") {
+            return todos.filter((todo) => todo.isComplete);
+        } else if (filter === "running") {
+            return todos.filter((todo) => !todo.isComplete);
+        } else {
+            return todos;
+        }
+    };
     changeView = (event) => {
         this.setState({
             TodoView: event.target.value,
@@ -72,10 +100,12 @@ class Todolist extends React.Component {
     reset = () => {};
 
     getView = () => {
+        let todos = this.performSearch();
+        todos = this.performFilter(todos);
         return this.state.TodoView === "list" ? (
-            <ListView todos={this.state.todos} toggleSelect={this.toggleSelect} toggleComplete={this.toggleComplete} />
+            <ListView todos={todos} toggleSelect={this.toggleSelect} toggleComplete={this.toggleComplete} />
         ) : (
-            <TableView todos={this.state.todos} toggleSelect={this.toggleSelect} toggleComplete={this.toggleComplete} />
+            <TableView todos={todos} toggleSelect={this.toggleSelect} toggleComplete={this.toggleComplete} />
         );
     };
     render() {
@@ -96,6 +126,7 @@ class Todolist extends React.Component {
                     />
                 </div>
                 <div className={classes.list_view}>{this.getView()}</div>
+
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleForm}>
                     <ModalHeader>Create New ToDo Task</ModalHeader>
                     <ModalBody>
