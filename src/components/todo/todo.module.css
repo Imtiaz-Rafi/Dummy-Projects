@@ -6,7 +6,7 @@
     margin: 15px 0px;
     padding: 10px 20px;
     border-radius: 4px;
-    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 50%);
+    box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 20%);
 }
 .container {
     max-width: 800px;
