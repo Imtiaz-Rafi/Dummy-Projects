@@ -1,32 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classes from "./todo.module.css";
+import { Button, Input, List } from "reactstrap";
 
 const ListItem = ({ todo, toggleSelect, toggleComplete }) => {
     return (
         <>
-            <div className={classes.list_row}>
-                <input
-                    type="checkbox"
-                    name={todo.id}
-                    id={todo.id}
-                    checked={todo.isSelect}
-                    onChange={() => toggleSelect(todo.id)}
-                />
-                <div className={classes.text_body}>
-                    <h3 className={classes.title}>{todo.title}</h3>
-                    {/* <div className={classes.desc}>{todo.desc}</div> */}
+            <List type="unstyled" className={classes.list_row}>
+                <li>
+                    <Input
+                        type="checkbox"
+                        name={todo.id}
+                        id={todo.id}
+                        checked={todo.isSelect}
+                        onChange={() => toggleSelect(todo.id)}
+                    />
+                </li>
+                <li className={classes.text_body}>
+                    <h3 className={classes.title}>{todo.text}</h3>
                     <div className={classes.date}>{todo.time.toDateString()}</div>
-                </div>
-                {/* <div className={classes.todo_btn}> */}
-                <button
-                    className={`${classes.todo_btn} ${todo.isComplete ? classes.danger : classes.success}`}
-                    onClick={() => toggleComplete(todo.id)}
-                >
-                    {todo.isComplete ? "Completed" : "Running"}
-                </button>
-                {/* </div> */}
-            </div>
+                </li>
+                <li>
+                    <Button color={todo.isComplete ? "success" : "danger"} onClick={() => toggleComplete(todo.id)}>
+                        {todo.isComplete ? "Completed" : "Running"}
+                    </Button>
+                </li>
+            </List>
         </>
     );
 };

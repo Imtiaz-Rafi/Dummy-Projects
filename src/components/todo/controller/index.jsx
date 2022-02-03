@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Controller = ({ handleChange, handleClick }) => {
+import SearchInput from "./search-input";
+
+const Controller = ({ term, handleSearch, toggleForm }) => {
     return (
         <div>
-            <input type="search" name="search" id="todoserach" onChange={handleChange} />
-            <button onClick={handleClick}>Add</button>
+            <SearchInput term={term} handleSearch={handleSearch} toggleForm={toggleForm} />
         </div>
     );
 };
 
 Controller.propTypes = {
-    handleChange: PropTypes.func.isRequired,
-    handleClick: PropTypes.func.isRequired,
+    term: PropTypes.string.isRequired,
+    handleSearch: PropTypes.func.isRequired,
+    toggleForm: PropTypes.func.isRequired,
 };
 
 export default Controller;

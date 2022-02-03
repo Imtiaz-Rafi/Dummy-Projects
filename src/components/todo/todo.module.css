@@ -1,6 +1,6 @@
 .list_row {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     background: rgb(0, 0, 0, 0.05);
     margin: 15px 0px;
@@ -12,33 +12,12 @@
     max-width: 800px;
     margin: auto;
 }
-.list_view {
-}
 .title {
     font-size: 18px;
     font-weight: 600;
 }
-.desc {
-}
-.date {
-}
-.todo_btn {
-    text-transform: uppercase;
-    font-size: 12px;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    border: 1px solid rgb(0, 0, 0, 0.5);
-}
-.danger {
-    background: red;
-}
-.success {
-    background: #028102;
-    color: white;
-    border: none;
-}
 .text_body {
+    margin-left: 15px;
 }
 .table_row {
     max-width: 800px;
@@ -47,8 +26,6 @@ table {
     width: 100%;
     display: table;
     border-collapse: collapse;
-}
-tr {
 }
 tr:nth-child(even) {
     background-color: #d6eeee;

@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classes from "./todo.module.css";
+import { Button, Input } from "reactstrap";
 
 const RowItem = ({ todo, toggleSelect, toggleComplete }) => {
     return (
         <>
             <tr>
                 <td>
-                    <input
+                    <Input
                         type="checkbox"
                         name={todo.id}
                         id={todo.id}
@@ -16,18 +17,15 @@ const RowItem = ({ todo, toggleSelect, toggleComplete }) => {
                     />
                 </td>
                 <td>
-                    <p className={classes.title}>{todo.title}</p>
+                    <p className={classes.title}>{todo.text}</p>
                 </td>
                 <td>
                     <div className={classes.date}>{todo.time.toDateString()}</div>
                 </td>
                 <td>
-                    <button
-                        className={`${classes.todo_btn} ${todo.isComplete ? classes.danger : classes.success}`}
-                        onClick={() => toggleComplete(todo.id)}
-                    >
+                    <Button color={todo.isComplete ? "success" : "danger"} onClick={() => toggleComplete(todo.id)}>
                         {todo.isComplete ? "Completed" : "Running"}
-                    </button>
+                    </Button>
                 </td>
             </tr>
         </>
