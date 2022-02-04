@@ -95,9 +95,22 @@ class Todolist extends React.Component {
             TodoView: event.target.value,
         });
     };
-    clearSelected = () => {};
-    clearCompleted = () => {};
-    reset = () => {};
+    clearSelected = () => {
+        const todos = this.state.todos.filter((todo) => !todo.isSelect);
+        this.setState({ todos });
+    };
+    clearCompleted = () => {
+        const todos = this.state.todos.filter((todo) => !todo.isComplete);
+        this.setState({ todos });
+    };
+    reset = () => {
+        this.setState({
+            isModalOpen: false,
+            SearchTerm: "",
+            TodoView: "list",
+            filter: "all",
+        });
+    };
 
     getView = () => {
         let todos = this.performSearch();
